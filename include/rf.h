@@ -61,14 +61,17 @@ typedef struct header_s {
 
 int create_file(char *argv[], int fd);
 int check_file_format(char *path);
-void write_file(int fd, FILE *cor_file, char *path);
 int get_byte_to_allocate(char *file_content);
-char *get_file_content(char *path, int fd);
-void write_body(char *file_content, FILE *cor_file);
 int get_instruction_byte(char *str, int i);
 int get_start_pos(char *file_content);
 int write_parameter_byte(char *str, int i, FILE *cor_file, int status);
-void write_coding_byte(char *str, int i, FILE *cor_file);
 int get_start_pos(char *file_content);
-int verif_line_body(char *line, char **label);
+int verif_line_body(char *line);
+int get_label(char *str, int i);
+int get_size_to_jump(char *str, int i, int size);
+void write_body(char *file_content, FILE *cor_file);
+void write_coding_byte(char *str, int i, FILE *cor_file);
+void write_file(int fd, FILE *cor_file, char *path);
+char *get_file_content(char *path, int fd);
+
 #endif

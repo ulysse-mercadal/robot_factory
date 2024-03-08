@@ -14,6 +14,6 @@ char *my_strncat(char *dest, char const *src, int len)
     for (int i = 0; i < len; i++) {
         dest[len1 + i] = src[i];
     }
-    dest[my_strlen(dest)] = '\0';
+    dest[len1] = '\0';
     return dest;
 }

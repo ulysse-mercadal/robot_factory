@@ -5,15 +5,17 @@
 ** main of robot factory project
 */
 
-#include "../lib/my/include/my_lib.h"
-#include "../lib/rf/include/rf_lib.h"
-#include "../include/rf.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+#include "../lib/my/include/my_lib.h"
+#include "../lib/rf/include/rf_lib.h"
+#include "../include/rf.h"
+
 int get_instruction_byte_2(char *str, int i)
 {
     if ((str[i] == 'z' && str[i + 1] == 'j' && str[i - 1] == '\t'))
@@ -88,7 +90,8 @@ int write_parameter_byte(char *str, int i, FILE *cor_file, int status)
         fwrite(&result, 1, sizeof(uint8_t), cor_file);
     }
     if (str[i] == '%' && str[i + 1] == ':') {
-        result = my_reverse_bytes(result);
+        result = get_label(str, i);
+        result = my_reverse_bytes_16(get_size_to_jump(str, i, result));
         fwrite(&result, 1, sizeof(uint16_t), cor_file);
         return 1;
     }

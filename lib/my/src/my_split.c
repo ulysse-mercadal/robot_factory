@@ -60,8 +60,7 @@ void fill_word(char **dest, char *str, char sep)
 char **my_split(char *str, char sep)
 {
     char *str_off = my_cleanstr(str, ' ');
-    int len = nb_word(str_off, sep);
-    char **dest = malloc(sizeof(char *) * len);
+    char **dest = malloc(sizeof(char *) * nb_word(str_off, sep));
 
     malloc_word(dest, str_off, sep);
     fill_word(dest, str_off, sep);

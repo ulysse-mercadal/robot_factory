@@ -14,6 +14,7 @@ SRC 		=		src/main.c						\
 					src/write_instruction_byte.c	\
 					src/write_code_byte.c			\
 					src/verif_body.c				\
+					src/find_label_size_to_jump.c	\
 
 OBJ			=  		$(SRC:.c=.o)
 

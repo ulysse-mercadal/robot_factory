@@ -5,11 +5,16 @@
 ** main of robot factory project
 */
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
 #include "../lib/my/include/my_lib.h"
 #include "../lib/rf/include/rf_lib.h"
 #include "../include/rf.h"
-#include <fcntl.h>
-#include <unistd.h>
 
 void printusage(void)
 {

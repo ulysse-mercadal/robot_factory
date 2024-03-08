@@ -21,7 +21,7 @@ char *my_get_file(char *path)
     path[my_strlen(path)] = '\0';
     lstat(path, &file_info);
     file_size = file_info.st_size;
-    result = malloc(sizeof(char) * file_size + 1);
+    result = malloc(sizeof(char) * file_size);
     while (read(file, result, file_size));
     close(file);
     return result;
